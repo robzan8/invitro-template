@@ -1,0 +1,216 @@
+<style>
+.cover-overlay .explorebtn:hover {
+   background: #32c5d2;
+   text-decoration: none;
+}
+.cover-overlay .explorebtn{
+   display: inline-block;
+   vertical-align: middle;
+   padding: 0px 15px;
+   color: #FFF;
+   line-height: 40px;
+   height: 40px;
+   border: 1px solid #32c5d2;
+   font-weight: 600;
+   transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   background-color: transparent;
+}
+h3 {
+   font-size: 18px;
+   margin: 10px 0;
+}
+.c-font-bold {
+   font-weight: 600 !important;
+}
+.row {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+</style>
+<div class="content">
+    <div class="container">
+        <h2 class="txt-camel">{$this->Language['my_library']}</h2>
+        <ul class="item-list row">
+            {assign var="total_purchase" value=$library|@count}
+            {foreach from=$library item=purchase}
+            {if ($purchase['is_media_published'] && (!$purchase['parent_publish_status'] || !$purchase['publish_status'])) || ($purchase['is_media_available'] == 1 && ($purchase['parent_publish_status'] || $purchase['publish_status']))} 
+            <li class="col-md-3">
+                <div class="item-wrap clearfix">
+                    
+                    <div class="item-cover">
+                        <img class="_cover" src="{$purchase['poster']}" />
+                        <div class="cover-overlay">
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==0}<a href="{$purchase['baseurl']}" class="playbtn">{$this->Language['play_now']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==1}<a href="javascript:void(0);" class="playbtn" style="cursor: default;">{$this->Language['stream_offline']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 0}
+                            <button type="button" onclick="showSeason('{$purchase['movie_id']}','{$purchase['movie_name']|utf8_decode}','{$purchase['permalink']|utf8_decode}')" id="explore" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square explore" >{$this->Language['explore']}</button>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="spacer_10"></div>
+                    <div class="item-info">
+                        <a href="{$purchase['baseurl_for_details']}">{$purchase['movie_name']}</a>
+                    </div>
+                    <div class="item-info">
+                        {if $purchase['genres']|@count > 0}
+                            {$genre_count = $purchase['genres']|count}
+                            {$j=0}
+                            {foreach from=$purchase['genres'] item=genre}
+                            {$genre}{$j = $j+1}{if $j != $genre_count}, {/if}
+                            {/foreach}
+                        {/if}
+                        &nbsp;
+                    </div>
+                    <div class="spacer_10"></div>
+               
+                </div>
+            </li>
+            {/if}
+            {/foreach}
+            {foreach from=$pplibrary item=purchase}
+            {if ($purchase['is_media_published'] && (!$purchase['parent_publish_status'] || !$purchase['publish_status'])) || ($purchase['is_media_available'] == 1 && ($purchase['parent_publish_status'] || $purchase['publish_status']))} 
+            <li class="col-md-3">
+                <div class="item-wrap clearfix">
+                    
+                    <div class="item-cover">
+                        <img class="_cover" src="{$purchase['poster']}" />
+                        <div class="cover-overlay">
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==0}<a href="{$purchase['baseurl']}" class="playbtn">{$this->Language['play_now']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==1}<a href="javascript:void(0);" class="playbtn" style="cursor: default;">{$this->Language['stream_offline']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 0}
+                            <button type="button" onclick="showSeason('{$purchase['movie_id']}','{$purchase['movie_name']|utf8_decode}','{$purchase['permalink']|utf8_decode}')" id="explore" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square explore" >{$this->Language['explore']}</button>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="spacer_10"></div>
+                    <div class="item-info">
+                        <a href="{$purchase['baseurl_for_details']}">{$purchase['movie_name']}</a>
+                    </div>
+                    <div class="item-info">
+                        {if $purchase['genres']|@count > 0}
+                            {$genre_count = $purchase['genres']|count}
+                            {$j=0}
+                            {foreach from=$purchase['genres'] item=genre}
+                            {$genre}{$j = $j+1}{if $j != $genre_count}, {/if}
+                            {/foreach}
+                        {/if}
+                        &nbsp;
+                    </div>
+                    <div class="spacer_10"></div>
+               
+                </div>
+            </li>
+            {/if} 
+            {/foreach}
+            {foreach from=$freecontent item=purchase}
+            <li class="col-md-3">
+                <div class="item-wrap clearfix">
+                    
+                    <div class="item-cover">
+                        <img class="_cover" src="{$purchase['poster']}" />
+                        <div class="cover-overlay">
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==0}<a href="{$purchase['baseurl']}" class="playbtn">{$this->Language['play_now']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 1 && $purchase['content_livestream_status']==1}<a href="javascript:void(0);" class="playbtn" style="cursor: default;">{$this->Language['stream_offline']}</a>{/if}<!--22332-->
+                            {if $purchase['is_play'] == 0}
+                            <button type="button" onclick="showSeason('{$purchase['movie_id']}','{$purchase['movie_name']|utf8_decode}','{$purchase['permalink']|utf8_decode}')" id="explore" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square explore" >{$this->Language['explore']}</button>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="spacer_10"></div>
+                    <div class="item-info">
+                        <a href="{$purchase['baseurl_for_details']}">{$purchase['movie_name']}</a>
+                    </div>
+                    <div class="item-info">
+                        {if $purchase['genres']|@count > 0}
+                            {$genre_count = $purchase['genres']|count}
+                            {$j=0}
+                            {foreach from=$purchase['genres'] item=genre}
+                            {$genre}{$j = $j+1}{if $j != $genre_count}, {/if}
+                            {/foreach}
+                        {/if}
+                        &nbsp;
+                    </div>
+                    <div class="spacer_10"></div>
+               
+                </div>
+            </li>
+            {/foreach}
+        </ul> 
+    </div>
+</div>
+<div class="modal fade" id="seasonModal" role="dialog" data-backdrop="static" data-keyboard="false" style="overflow-y:hidden !important;">
+    <div class="modal-dialog" style="width: 90%!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title" style="font-size:22px;text-transform: none;" ><span id="headertitel"></span></h4>
+            </div>
+            <div class="modal-body" style="height: 400px; overflow-y: auto;">
+                <div class="row">
+                    <div class="col-sm-6  c-font-uppercase c-font-bold">
+                         {$this->Language['episodes']} 
+                    </div>
+                    <div class="col-sm-3">
+                        <h3 class="c-font-uppercase c-font-bold text-right text-left-xs season-dropdown_title">                                    
+                            {$this->Language['season']}                                
+                        </h3>
+                    </div>
+                    <div class="col-sm-3" id="seasons"></div>
+                </div>
+                <div class="row relative">
+                    <!--To list episodes-->
+                    <input type="hidden" name="content_id" id="content_id"/>
+                    <input type="hidden" name="permalink" id="permalink"/>
+                    <input type="hidden" name="default_series" id="default_series"/>
+                    <input type="hidden" name="userid" id="userid" value="{Yii::app()->user->id}" />
+                    <div id="episodes" class="cust-row"></div>
+                    <div class="loader" id="loader_episode" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{literal}
+<script>
+    function showSeason(movie_id,title,permalink){
+            $('#headertitel').html(title);
+            $('#permalink').val(permalink);
+            $('#content_id').val(movie_id);
+            var url = HTTP_ROOT + "/rest/fetchSeasons?authToken=" + STORE_AUTH_TOKEN + "&user_id={/literal}{Yii::app()->user->id}{literal}"+"&movie_id="+movie_id;
+            $.post(url, function (res) {
+                var htmlval="";
+                htmlval +='<select id="season" name="season" onchange="showeposide(this.value)" class="form-control form-control-border">';
+                for(var j = 0; j < res.seasons.length; j++){
+                     htmlval +='<option value="'+res.seasons[j].series_number+'">Season '+res.seasons[j].series_number+'</option>';               
+                } 
+                htmlval +='</select>';
+                $('#seasons').html(htmlval);
+                showeposide(res.seasons[0].series_number)
+            });
+            
+            $("#seasonModal").modal('show');
+        }
+    
+    function showeposide(series){
+        var permalink= $('#permalink').val();
+        var url = HTTP_ROOT + "/rest/episodeDetails?authToken=" + STORE_AUTH_TOKEN + "&user_id={/literal}{Yii::app()->user->id}{literal}"+"&lang_code=en&only_purchased=1&permalink="+permalink;
+            $.post(url, function (data) {
+                
+            var limit = 100;
+            var findEpisodesURL = HTTP_ROOT + "/content/FetchLibraryepisodes";
+            xhr=$.ajax({
+            method: "POST",
+            url: findEpisodesURL,
+            dataType: "json",
+            data: {'movie_id': $('#content_id').val(), 'series': series, 'limit': limit,'userid':$('#userid').val(), 'viewlist': data.episode}
+        }).done(function(res) {
+           $("#episodes").html(res.msg);
+        });
+        });
+    }
+</script>
+{/literal}

@@ -1,0 +1,29 @@
+<!-- BEGIN: PAGE CONTAINER -->
+{$content = $item|json_decode}
+<div class="content">
+    <div class="container">
+        <h2 class="txt-camel">{$this->Language['blog']}</h2>
+        <div class="">
+            {foreach from=$data|json_decode item=content}
+            <div class="blog-item clearfix">
+                <h3>{$content->post_title|utf8_decode}</h3>
+                <h4>
+                    {$this->Language['by']} <b>{$content->author}</b>, {$this->Language['published_on']} <b>{$content->date}</b>
+                </h4>
+                <p>
+                   {$content->thumb}
+                   {$content->short_desc|utf8_decode}&nbsp;<a href="{$content->permalink}">{$this->Language['view_more']}</a>
+                </p>
+               
+            </div>
+            {/foreach}
+            <div class="col-md-12">
+                <div class="product-pagination text-center">
+                    <nav>
+                        {$pagination}
+                    </nav>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

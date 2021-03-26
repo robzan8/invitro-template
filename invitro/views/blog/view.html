@@ -1,0 +1,39 @@
+{$post = $post|json_decode}
+<div class="content">
+    <div class="container">
+        <div class="blog-item clearfix">
+            <h3>{$this->Language['blog']}/ {$post->post_title|utf8_decode}</h3>
+            <h4>
+                {$this->Language['by']} <b>{$post->author}</b>, {$this->Language['published_on']} <b>{$post->date}</b>
+            </h4>
+            <p>
+                {$post->thumb}
+                {$post->full_desc|utf8_decode}
+            </p>
+        </div>
+        
+        {foreach from=$comments item=comment}
+        <p>
+            {$this->Language['by']} : {$comment->fullname}<br />
+            {$comment->comment}
+        </p>
+        <hr />
+        {/foreach}
+        <br/>
+        <div id="comment_form"></div> 
+        
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        blogViewVideo(".blog-item"); //12046
+        $.ajax({
+            url: "/blog/LoadCommentForm",
+            data: "post_id="+{$post->post_id},
+            type:'POST',
+            success: function (data) {
+                $('#comment_form').html(data);
+            }
+        });
+    });
+</script>

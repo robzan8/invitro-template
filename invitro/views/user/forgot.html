@@ -1,0 +1,26 @@
+<div class="content">
+    <div class="container">
+        <h2 class="txt-camel">{$this->Language['forgot_pwd']}</h2>
+        <div class="row">
+            <form class="col-md-6" name="frmRP" id="frmRP" method="post" action="javascript:void(0);">
+            <input type="hidden" name="csrfToken"  value="{$smarty.session.csrfToken}" />
+
+            <div class="form-group ">
+                <label class="control-label required" for="login_email">{$this->Language['text_email_for_password_reset']}</label>
+                <div class="controls">
+                    <input type="text" name="email" id="reset_email" placeholder="{$this->Language['text_email_placeholder']}" autocomplete="off" class="form-control" />
+                </div>
+            </div>   
+            <!--<div class="loader" id="loader"></div>-->
+            <div class="clear"></div>
+            <div class="form-group ">
+                <div class="controls">
+                    <button type="submit" class="btn btn-lg btn-primary" name="login_submit" id="login-btn">{$this->Language['btn_submit']}</button>
+                    <div style="float: right; margin-top: 10px;">{$this->Language['remember_password']} <a class="link txt-right" href="{$this->base_url}/user/login">{$this->Language['login_here']}</a></div>
+                </div>
+            </div>
+            <div id="reset-errors" class="error center"></div>
+        </form>
+        </div>
+    </div>
+</div>
