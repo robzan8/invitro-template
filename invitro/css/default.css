@@ -1,3 +1,9 @@
+.content-title {
+  font-family: "Bebas Neue";
+  font-size: 20px;
+  color: #222 !important;
+}
+
 /*SCSS variables end*/
 @keyframes placeHolderShimmer {
   0% {
@@ -24,6 +30,10 @@ body {
   body a:active, body a:hover, body a:focus {
     color: #32c5d2;
     text-decoration: none; }
+  body h1 {
+    font-family: "Bebas Neue";
+    font-size: 56px;
+  }
   body h2 {
     color: #3f444a;
     font-size: 18px;
@@ -166,12 +176,12 @@ body {
     body header nav ul li {
       display: block; } }
         body header nav ul li a {
+          font-family: "Bebas Neue";
           display: block;
           padding: 30px 15px 30px 15px;
           margin: 0px 0px 0px 0px;
-          font-size: 15px;
+          font-size: 22px;
           color: #fff;
-          font-weight: 600;
           text-transform: uppercase;
           background-color: rgba(255, 255, 255, 0); }
           @media screen and (max-width: 991px) {

@@ -4,7 +4,10 @@ var parentThemeName = "{$this->studio->parent_theme}";
 </script>
 {literal}
 <section class="content">
-    <div id="homepage_sections" ng-app="FeaturedContents" ng-controller="HomeFeaturedSections">
+    <div id="homepage_sections" ng-app="FeaturedContents" ng-controller="HomeFeaturedSections" style="position: relative;">
+        <!-- red stripe in background: -->
+        <div style="position: absolute; z-index: -100; width: 100%; height: 220px; background-color: #be0e0e; top: 210px;"></div>
+
         <div ng-repeat="section in sections" ng-if="section.total > 0" class="parent_sec_{{section.id}} featured-sec-wrap _init" >
             <div ng-if="section.layout_design == '3'" >
                 <h2 class="clearfix text-center" style="position: relative;">
@@ -103,10 +106,9 @@ var parentThemeName = "{$this->studio->parent_theme}";
             </div>
             
             <div ng-if="section.layout_design != '3'" class="container">
-                <h2 class="clearfix">
-                    <span class="caps" style="display: inline-block; margin-top: 4px;">{{section.title|utfdecode}}</span>
-                    <a ng-if="section.cpermalink" ng-href="{/literal}{$this->base_url}/{literal}{{section.cpermalink}}" class="btn btn-primary pull-right">{/literal}{$this->Language['view_more']}{literal}</a>
-                </h2>
+                <h1 class="clearfix" style="color: #be0e0e">
+                    Gli Spettacoli
+                </h1>
                 <ul class="item-list row" ng-class="section.layout_design == '2'? 'slider' : ''">
                     <li ng-repeat="content in section.contents" class="col-sm-6 col-xs-12" 
                         ng-class="
@@ -255,11 +257,11 @@ var parentThemeName = "{$this->studio->parent_theme}";
                                 </div>
                                 <div class="spacer_10"></div>
                                 <div dir="auto" class="item-info">
-                                    <a ng-if="content.episode_title">{{content.episode_title|utfdecode}}</a>
-                                    <a ng-if="!content.episode_title && content.title" href="{{content.permalink}}" >{{content.title|utfdecode}}</a>
-                                    <a ng-if="!content.episode_title && !content.title && content.name" href="{{content.permalink}}" >{{content.name|utfdecode}}</a>
+                                    <a class="content-title" ng-if="content.episode_title">{{content.episode_title|utfdecode}}</a>
+                                    <a class="content-title" ng-if="!content.episode_title && content.title" href="{{content.permalink}}" >{{content.title|utfdecode}}</a>
+                                    <a class="content-title" ng-if="!content.episode_title && !content.title && content.name" href="{{content.permalink}}" >{{content.name|utfdecode}}</a>
                                 </div>
-                                <div class="item-info" ng-if="section.content_type != 1">
+                                <div class="item-info" ng-if="false && section.content_type != 1">
                                     <span ng-repeat="genres in content.genres" ng-bind-template="{{$index == 0 ? '':', '}}{{genres}}"></span>&nbsp;
                                 </div>
 
@@ -409,6 +411,17 @@ var parentThemeName = "{$this->studio->parent_theme}";
                     </li>
                 </ul>
             </div>
+        </div>
+
+        <div style="background-color: #be0e0e; padding: 40px; text-align: center; margin-top: 50px;">
+            <h1 style="color: white;">Ci Sostengono</h1>
+        </div>
+
+        <div>
+            <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/mettiticomodo_1617096614.png"
+              style="display: block; margin: auto; margin-top: 50px;">
+            <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/invitroblu_1617096735.png"
+              style="display: block; margin: auto; margin-top: 20px;">
         </div>
     </div>
 </section>
