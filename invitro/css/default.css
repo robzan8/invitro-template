@@ -4,6 +4,51 @@
   color: #222 !important;
 }
 
+.red-button {
+  font-family: "Bebas Neue";
+  font-size: 20px;
+  color: white;
+  border: none;
+  border-radius: 0;
+  background-color: #be0e0e;
+  padding: 10px;
+  min-width: 100px;
+  display: inline-block;
+  text-align: center;
+}
+
+.red-underline {
+  padding-bottom: 10px;
+  border-bottom: 5px solid #be0e0e;
+  margin-bottom: 20px;
+}
+
+.banner {
+  display: block;
+  width: 100%;
+}
+
+.content .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.leftcol {
+  padding-top: 100px;
+  padding-right: 40px;
+}
+
+.leftcol img {
+  display: block;
+  width: 30vw;
+}
+
+@media screen and (max-width: 991px) {
+  .leftcol {
+    display: none;
+  }
+}
+
 /*SCSS variables end*/
 @keyframes placeHolderShimmer {
   0% {
@@ -13,10 +58,11 @@
     background-position: 468px 0; } }
 
 body {
+  padding-top: 0 !important;
   font-family: "Roboto Condensed";
   font-weight: 300;
   font-size: 16px;
-  color: #5c6873;
+  color: #222;
   background: #f3f3f3;
   padding-top: 80px; }
   body a {
@@ -35,9 +81,11 @@ body {
     font-size: 56px;
   }
   body h2 {
-    color: #3f444a;
-    font-size: 18px;
-    margin: 15px 0; }
+    font-family: "Bebas Neue";
+    color: black;
+    font-size: 35px;
+    letter-spacing: 5px;
+  }
   body .txt-camel {
     text-transform: capitalize; }
   body .loader {
@@ -383,10 +431,7 @@ body {
   body .carousel-control._rounded.right {
     background-image: url(../images/right-arrow.png); }
   body .content {
-    padding: 20px 0;
     min-height: 400px; }
-  body .content._no-gap-top {
-    padding: 0 0 20px; }
   body .featured-sec-wrap {
     transition: all 0.6s ease-in-out;
     -moz-transition: all 0.6s ease-in-out;
