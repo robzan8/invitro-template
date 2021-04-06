@@ -198,7 +198,13 @@ var parentThemeName = "{$this->studio->parent_theme}";
                             
                             <ng-container ng-if="!section.meta_data_info">
                                 <div class="item-cover" ng-if="content.poster !=''">
-                                    <img class="_cover" ng-src="{{content.poster}}" />
+                                    <img ng-if="content.title.includes('Sani')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/sani_1617353980.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Janis')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/janis_1617353948.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Battaglia')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/lia_1617353958.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Cyrano')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/cyrano_1617353939.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Mary')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/mary_1617353970.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Celeste')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/celeste_1617353927.jpg" style="width: 100%;">
+                                    <img ng-if="content.title.includes('Bulli')" ng-src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/bulli_1617353917.jpg" style="width: 100%;">
                                     <div ng-if="content.content_types_id == 8" class="cover-overlay">
                                         <a href="javascript:void(0);" class="btn btn-lg btn-primary" onclick="playAudio(this)" id="{{content.movie_id}}" data-content_type="{{content.is_episode}}" >{/literal}{$this->Language['btn_play']}{literal}</a>
                                     </div>
@@ -257,9 +263,34 @@ var parentThemeName = "{$this->studio->parent_theme}";
                                 </div>
                                 <div class="spacer_10"></div>
                                 <div dir="auto" class="item-info">
-                                    <a class="content-title" ng-if="content.episode_title">{{content.episode_title|utfdecode}}</a>
-                                    <a class="content-title" ng-if="!content.episode_title && content.title" href="{{content.permalink}}" >{{content.title|utfdecode}}</a>
-                                    <a class="content-title" ng-if="!content.episode_title && !content.title && content.name" href="{{content.permalink}}" >{{content.name|utfdecode}}</a>
+                                    <ng-container ng-if="content.title.includes('Sani')">
+                                        <a class="content-title" href="/far-finta-di-essere-sani">{{content.title|utfdecode}}</a>
+                                        <a href="teatro-menotti">Teatro Menotti</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Janis')">
+                                        <a class="content-title" href="/janis-take-another-little-piece-of-my-heart">{{content.title|utfdecode}}</a>
+                                        <a href="teatro-del-buratto">Teatro del Buratto</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Battaglia')">
+                                        <a class="content-title" href="/nome-di-battaglia-lia">{{content.title|utfdecode}}</a>
+                                        <a href="teatro-della-cooperativa">Teatro della Cooperativa</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Cyrano')">
+                                        <a class="content-title" href="/cyrano-sulla-luna">{{content.title|utfdecode}}</a>
+                                        <a href="manifatture-teatrali-milanesi">Manifatture Teatrali Milanesi</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Mary')">
+                                        <a class="content-title" href="/mary-una-sarta-per-shakespeare">{{content.title|utfdecode}}</a>
+                                        <a href="teatro-dell-elfo">Teatro dell'Elfo</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Celeste')">
+                                        <a class="content-title" href="/sn-1604-corpo-celeste">{{content.title|utfdecode}}</a>
+                                        <a href="teatro-magro">Teatro Magro</a>
+                                    </ng-container>
+                                    <ng-container ng-if="content.title.includes('Bulli')">
+                                        <a class="content-title" href="/webulli">{{content.title|utfdecode}}</a>
+                                        <a href="industria-scenica">Industria Scenica</a>
+                                    </ng-container>
                                 </div>
                                 <div class="item-info" ng-if="false && section.content_type != 1">
                                     <span ng-repeat="genres in content.genres" ng-bind-template="{{$index == 0 ? '':', '}}{{genres}}"></span>&nbsp;
@@ -377,51 +408,67 @@ var parentThemeName = "{$this->studio->parent_theme}";
                 <span ng-if="section.layout_design != '2'" style="display: none;" ng-init="updateSlider1(section.id)"></span>
             </div>
         </div>
-        
-        <div class="container">
-            <div class="featured-sec-placeholder" ng-if="isLoader" style="display:block;" >
-                <ul class="clearfix row">
-                    <li class="col-md-3">
-                        <div class="item-wrap">
-                            <i></i>
-                            <h3></h3>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="col-md-3">
-                        <div class="item-wrap">
-                            <i></i>
-                            <h3></h3>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="col-md-3">
-                        <div class="item-wrap">
-                            <i></i>
-                            <h3></h3>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="col-md-3">
-                        <div class="item-wrap">
-                            <i></i>
-                            <h3></h3>
-                            <p></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+
+        <div style="background-color: #be0e0e; padding: 30px; text-align: center; margin-top: 50px;">
+            <h1 style="color: white;">Ci Sostengono</h1>
         </div>
 
-        <div style="background-color: #be0e0e; padding: 40px; text-align: center; margin-top: 50px;">
-            <h1 style="color: white;">Ci Sostengono</h1>
+        <div style="background-color: white; padding: 30px 8%; text-align: center;">
+            <a class="partnerlink" href="https://www.legacooplombardia.it/pico-lombardia" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/COOPWORKING_1617610024.jpg">
+            </a>
+            <a class="partnerlink" href="https://www.hagam.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/hagam_1617610086.png">
+            </a>
+            <a class="partnerlink" href="http://www.generaimprese.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/LOGO-GENERA_1617610096.jpg">
+            </a>
+            <a class="partnerlink" href="https://www.gnucoop.com/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/logo-gnu-orizzontale_nonprofit_1617610106.png">
+            </a>
+            <a class="partnerlink" href="https://www.legacooplombardia.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/logo_legalombardia_1617610116.png">
+            </a>
+            <a class="partnerlink" href="https://www.multimagine.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/logo-multimagine_1617610126.png">
+            </a>
+            <a class="partnerlink" href="https://www.coopservizi.com/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/logo-principale-coopservizi_colore_1617610137.jpg">
+            </a>
+            <a class="partnerlink" href="https://pico.coop/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/pico-fondazione-logo_1617610159.png">
+            </a>
+            <a class="partnerlink" href="https://smart-it.org/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/SMART_ROUGE_RGB_1617610170.jpg">
+            </a>
+            <a class="partnerlink" href="https://www.abitare.coop/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/abitare_1617697667.png">
+            </a>
+            <a class="partnerlink" href="http://www.caatrasporti.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/caa_1617697675.png">
+            </a>
+            <a class="partnerlink" href="https://www.clomilano.eu/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/clo_1617697685.png">
+            </a>
+            <a class="partnerlink" href="https://www.e-coop.it/cooperative/coop-lombardia/homepage" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/coop-lombardia_1617697693.png">
+            </a>
+            <a class="partnerlink" href="https://www.uniabita.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/uniabita_1617697701.png">
+            </a>
+            <a class="partnerlink" href="https://www.unipol.it/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/unipol_1617697711.png">
+            </a>
+            <a class="partnerlink" href="https://www.fondazioneunipolis.org/" target="_blank">
+                <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/unipolis_1617697720.jpg">
+            </a>
         </div>
 
         <div>
             <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/mettiticomodo_1617096614.png"
               style="display: block; margin: auto; margin-top: 50px;">
             <img src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/invitroblu_1617096735.png"
-              style="display: block; margin: auto; margin-top: 20px;">
+              style="display: block; margin: 40px auto;">
         </div>
     </div>
 </section>

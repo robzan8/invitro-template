@@ -42,9 +42,38 @@
   display: block;
   width: 30vw;
 }
-
 @media screen and (max-width: 991px) {
   .leftcol {
+    display: none;
+  }
+}
+
+.partnerlink {
+  display: inline-block;
+  margin: 25px;
+}
+@media screen and (max-width: 991px) {
+  .partnerlink img {
+    width: 85px;
+  }
+}
+
+.bannertext {
+  font-size: 18px;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  width: 45%;
+}
+@media screen and (max-width: 991px) {
+  .bannertext {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 8% 0 8%;
+  }
+  .bannertext a {
     display: none;
   }
 }
@@ -58,7 +87,6 @@
     background-position: 468px 0; } }
 
 body {
-  padding-top: 0 !important;
   font-family: "Roboto Condensed";
   font-weight: 300;
   font-size: 16px;
