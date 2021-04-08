@@ -8,7 +8,6 @@
         <nav>
             <ul>
                 {include file='../layouts/mainmenu.html'}
-                <li><a class="srch-butn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
                 {if Yii::app()->general->getStoreLink()}
                 <li class="cart-menu">
                     <a href="javascript:void(0);" onclick="goKart();" class="cart-toggle-butn cart-triger">
@@ -31,7 +30,6 @@
                 {if $mitem['children']|@count > 0}
                 <li class="">
                     <a href="#" class="{$mitem['class']} dropdown-toggle _user-menu">
-                        <img class="img-circle user-icon" alt="{$mitem['display_name']}" title="{$mitem['display_name']}" src="{$mitem['profile_image']}" /> 
                         {$mitem['display_name']} 
                         <span class="caret"></span>
                     </a>
@@ -128,17 +126,7 @@
         </nav>
         
     </div>
-    
-    <div class="search-bar">
-        <div class="container">
-            <form class="" onsubmit="return validate_search();" action="{$this->base_url}/search/show_all"  id="search-form">
-                <i class="fa fa-search search-icon"></i>
-                <input type="text" class="form-control sitesearch" id="siteSearch" name="search_field" placeholder="{$this->Language['type_to_search']}" name="search_field" autocomplete="off" />
-                <input type="hidden" name="csrfToken"  value="{$smarty.session.csrfToken}" />
-                <a class="close-search" href="javascript:void(0);" onclick="hide('mysearch')">&times;</a>
-            </form>
-        </div>
-    </div>
+
     {/if}<!--40392 -->
      <div class="alert-msg in  fade alert-success profile-success" id="connect_us_form_success_message" style="display: none;"></div><!--41016 -->
 </header>

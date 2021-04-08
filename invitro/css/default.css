@@ -1,3 +1,16 @@
+h1 {
+  font-family: "Bebas Neue";
+  font-size: 56px;
+}
+
+h2 {
+  margin-top: 40px;
+  font-family: "Bebas Neue";
+  color: black;
+  font-size: 35px;
+  letter-spacing: 5px;
+}
+
 .content-title {
   font-family: "Bebas Neue";
   font-size: 20px;
@@ -25,6 +38,7 @@
 
 .banner {
   display: block;
+  margin-top: -120px;
   width: 100%;
 }
 
@@ -59,7 +73,7 @@
 }
 
 .bannertext {
-  font-size: 18px;
+  font-size: 22px;
   position: absolute;
   top: 150px;
   left: 50px;
@@ -78,6 +92,24 @@
   }
 }
 
+.stageimage {
+  display: inline-block;
+  width: 22%;
+  margin: 1%;
+}
+@media screen and (max-width: 991px) {
+  .stageimage {
+    width: 47%;
+  }
+}
+
+.redhr {
+  width: 120px;
+  border-top: 5px solid #be0e0e;
+  margin-top: 0;
+  margin-bottom: 13px;
+}
+
 /*SCSS variables end*/
 @keyframes placeHolderShimmer {
   0% {
@@ -87,6 +119,7 @@
     background-position: 468px 0; } }
 
 body {
+  padding-top: 120px !important;
   font-family: "Roboto Condensed";
   font-weight: 300;
   font-size: 16px;
@@ -104,16 +137,6 @@ body {
   body a:active, body a:hover, body a:focus {
     color: #32c5d2;
     text-decoration: none; }
-  body h1 {
-    font-family: "Bebas Neue";
-    font-size: 56px;
-  }
-  body h2 {
-    font-family: "Bebas Neue";
-    color: black;
-    font-size: 35px;
-    letter-spacing: 5px;
-  }
   body .txt-camel {
     text-transform: capitalize; }
   body .loader {
@@ -188,7 +211,7 @@ body {
     top: 0;
     right: 0;
     z-index: 9;
-    background: rgba(255, 255, 255, 0.5);
+    background-color: #24272988 !important;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     border-top: 0px solid rgba(0, 0, 0, 0);
@@ -234,7 +257,7 @@ body {
     width: 300px;
     margin: 0;
     padding: 0;
-    background: #fff;
+    background-color: #242729;
     overflow-y: auto;
     transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -267,7 +290,7 @@ body {
           color: #32c5d2;
           text-decoration: none; }
         body header nav ul li a._user-menu {
-          padding: 0 15px; }
+          padding: 15px; }
           body header nav ul li a._user-menu img {
             height: 60px;
             transition: all 0.3s ease-in-out;
@@ -291,6 +314,7 @@ body {
             text-align: center;
             line-height: 20px; }
         body header nav ul li ul {
+          z-index: 666;
           margin: 0;
           padding: 7px 0;
           list-style: none;
@@ -420,7 +444,7 @@ body {
     body header .menu-toggle-butn span, body header .menu-toggle-butn:after, body header .menu-toggle-butn:before {
       content: '';
       display: block;
-      background-color: #555;
+      background-color: white;
       height: 3px;
       border-radius: 2px; }
     body header .menu-toggle-butn:hover span, body header .menu-toggle-butn:hover:after, body header .menu-toggle-butn:hover:before {
@@ -1203,7 +1227,7 @@ body {
 
 body._nav-on header nav {
   right: 0;
-  box-shadow: 0 0 100px #000; }
+  box-shadow: 0 0 20px #0008; }
   body._nav-on header .menu-toggle-butn span, body._nav-on header .menu-toggle-butn:after, body._nav-on header .menu-toggle-butn:before {
     background: #0cb9f3; }
   body._nav-on header .menu-toggle-butn:after, body._nav-on header .menu-toggle-butn:before {
