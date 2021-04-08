@@ -69,7 +69,21 @@
 <li class="col-md-3">
     <div class="item-wrap">
         <div class="item-cover">
-            <img class="_cover" src="{$episode_image}" />
+            {if $data->title == "Far Finta di Essere Sani"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/sani_1617353980.jpg">
+            {elseif $data->title == "Janis - Take Another Little Piece of My Heart"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/janis_1617353948.jpg">
+            {elseif $data->title == "Nome di Battaglia LIA"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/lia_1617353958.jpg">
+            {elseif $data->title == "Cyrano sulla Luna"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/cyrano_1617353939.jpg">
+            {elseif $data->title == "Mary, una Sarta per Shakespeare"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/mary_1617353970.jpg">
+            {elseif $data->title == "SN | 1604 Corpo Celeste"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/celeste_1617353927.jpg">
+            {elseif $data->title == "WEBulli"}
+                <img class="_cover" src="https://d2wk81qbuk09ji.cloudfront.net/65346/public/imagegallery/original/bulli_1617353917.jpg">
+            {/if}
             {if $data->show_playbtn == 1}
             <div class="cover-overlay">
                 {$data->play_btn}
@@ -81,18 +95,36 @@
             <div class="cover-overlay"><a class="comingsoon">{$this->Language['coming_soon']}</a></div>
             {/if}
         </div>
-       <div class="item-info item_title">
-           <h4>{$data->title}</h4>
+        <div class="spacer_10"></div>
+        <div class="item-info">
+        {if $data->title == "Far Finta di Essere Sani"}
+            <a class="content-title" href="/far-finta-di-essere-sani">{$data->title}</a>
+            <a href="teatro-menotti">Teatro Menotti</a>
+        {elseif $data->title == "Janis - Take Another Little Piece of My Heart"}
+            <a class="content-title" href="/janis-take-another-little-piece-of-my-heart">{$data->title}</a>
+            <a href="teatro-del-buratto">Teatro del Buratto</a>
+        {elseif $data->title == "Nome di Battaglia LIA"}
+            <a class="content-title" href="/nome-di-battaglia-lia">{$data->title}</a>
+            <a href="teatro-della-cooperativa">Teatro della Cooperativa</a>
+        {elseif $data->title == "Cyrano sulla Luna"}
+            <a class="content-title" href="/cyrano-sulla-luna">{$data->title}</a>
+            <a href="mtm">Manifatture Teatrali Milanesi</a>
+        {elseif $data->title == "Mary, una Sarta per Shakespeare"}
+            <a class="content-title" href="/mary-una-sarta-per-shakespeare">{$data->title}</a>
+            <a href="teatro-dellelfo">Teatro dell'Elfo</a>
+        {elseif $data->title == "SN | 1604 Corpo Celeste"}
+            <a class="content-title" href="/sn-1604-corpo-celeste">{$data->title}</a>
+            <a href="teatro-magro">Teatro Magro</a>
+        {elseif $data->title == "WEBulli"}
+            <a class="content-title" href="/webulli">{$data->title}</a>
+            <a href="industria-scenica">Industria Scenica</a>
+        {/if}
         </div>
-       <div class="item-info item_story">
-            {if $data->story|utf8_decode|count_characters > 55}{$data->story|utf8_decode|truncate:70}<a href="javascript:void();" class="multipart_child more" data-id="more-{$ccc}" data-toggle="modal"  data-target=".bs-example-modal-lg3">{$this->Language['more']}</a>{else}{$data->story|utf8_decode}{/if}
-             <p class="full-desc hide">{$data->story|utf8_decode}</p>
+        {if $this->add_to_video_playlist != 0 && $data->show_playbtn == 1} <!--@ER : 19491 @info: publish content later @author: Pritam  -->
+        <div class="item-info item_playlist">
+            <a href="javascript:void(0);" class="btn btn-primary addPlay" data-type="2" data-content_id="{$data->movie_stream_id}" data-user_id="{$user_id}" data-is_episode="{$data->is_episode}">{$this->Language['add_to_playlist']}</a>
         </div>
-       {if $this->add_to_video_playlist != 0 && $data->show_playbtn == 1} <!--@ER : 19491 @info: publish content later @author: Pritam  -->
-       <div class="item-info item_playlist">
-        <a href="javascript:void(0);" class="btn btn-primary addPlay" data-type="2" data-content_id="{$data->movie_stream_id}" data-user_id="{$user_id}" data-is_episode="{$data->is_episode}">{$this->Language['add_to_playlist']}</a>
-       </div>
-       {/if} 
+        {/if}
         <div class="spacer_10"></div>
     </div>
 </li>
