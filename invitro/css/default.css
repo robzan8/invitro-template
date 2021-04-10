@@ -133,6 +133,11 @@ h2 {
   margin-bottom: 13px;
 }
 
+#main {
+  padding-bottom: 30px;
+  min-height: calc(100vh - 120px - 112px);
+}
+
 /*SCSS variables end*/
 @keyframes placeHolderShimmer {
   0% {
@@ -820,7 +825,7 @@ body {
   body footer {
     background: #242729;
     padding: 20px 0px 20px 0px;
-    margin: 20px 0px 0px 0px;
+    margin: 0;
     border-top: 0px solid #fff;
     border-right: 0px solid #fff;
     border-bottom: 0px solid #fff;
