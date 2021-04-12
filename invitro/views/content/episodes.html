@@ -98,26 +98,26 @@
         <div class="spacer_10"></div>
         <div class="item-info">
         {if $data->title == "Far Finta di Essere Sani"}
-            <a class="content-title" href="/far-finta-di-essere-sani">{$data->title}</a>
-            <a href="teatro-menotti">Teatro Menotti</a>
+            <span class="content-title">{$data->title}</span><br>
+            Teatro Menotti
         {elseif $data->title == "Janis - Take Another Little Piece of My Heart"}
-            <a class="content-title" href="/janis-take-another-little-piece-of-my-heart">{$data->title}</a>
-            <a href="teatro-del-buratto">Teatro del Buratto</a>
+            <span class="content-title">{$data->title}</span><br>
+            Teatro del Buratto
         {elseif $data->title == "Nome di Battaglia LIA"}
-            <a class="content-title" href="/nome-di-battaglia-lia">{$data->title}</a>
-            <a href="teatro-della-cooperativa">Teatro della Cooperativa</a>
+            <span class="content-title">{$data->title}</span><br>
+            Teatro della Cooperativa
         {elseif $data->title == "Cyrano sulla Luna"}
-            <a class="content-title" href="/cyrano-sulla-luna">{$data->title}</a>
-            <a href="mtm">Manifatture Teatrali Milanesi</a>
+            <span class="content-title">{$data->title}</span><br>
+            Manifatture Teatrali Milanesi
         {elseif $data->title == "Mary, una Sarta per Shakespeare"}
-            <a class="content-title" href="/mary-una-sarta-per-shakespeare">{$data->title}</a>
-            <a href="teatro-dellelfo">Teatro dell'Elfo</a>
+            <span class="content-title">{$data->title}</span><br>
+            Teatro dell'Elfo
         {elseif $data->title == "SN | 1604 Corpo Celeste"}
-            <a class="content-title" href="/sn-1604-corpo-celeste">{$data->title}</a>
-            <a href="teatro-magro">Teatro Magro</a>
+            <span class="content-title">{$data->title}</span><br>
+            Teatro Magro
         {elseif $data->title == "WEBulli"}
-            <a class="content-title" href="/webulli">{$data->title}</a>
-            <a href="industria-scenica">Industria Scenica</a>
+            <span class="content-title">{$data->title}</span><br>
+            Industria Scenica
         {/if}
         </div>
         {if $this->add_to_video_playlist != 0 && $data->show_playbtn == 1} <!--@ER : 19491 @info: publish content later @author: Pritam  -->
