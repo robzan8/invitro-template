@@ -47,22 +47,20 @@ h2 {
   margin-bottom: 20px;
 }
 
-.banner {
+.banner, .bs-slider {
   display: block;
   width: 100%;
+  margin-top: -120px !important;
+}
+@media screen and (max-width: 991px) {
+  .banner, .bs-slider {
+    margin-top: 0 !important;
+  }
 }
 
 .menuSpacer {
-  height: 0;
-}
-@media screen and (max-width: 991px) {
-  .menuSpacer {
-    height: 120px;
-    background-color: black;
-  }
-}
-.bs-slider {
-  margin-top: 0 !important;
+  height: 120px;
+  background-color: black;
 }
 
 .leftcol {
