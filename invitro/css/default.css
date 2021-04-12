@@ -121,6 +121,17 @@ h2 {
   }
 }
 
+.locandina {
+  display: none;
+  max-width: 100%;
+  margin: 15px auto;
+}
+@media screen and (max-width: 991px) {
+  .locandina {
+    display: block;
+  }
+}
+
 .redhr {
   width: 120px;
   border-top: 5px solid #be0e0e;
