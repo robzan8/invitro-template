@@ -49,21 +49,16 @@ h2 {
 
 .banner {
   display: block;
-  margin-top: -120px;
   width: 100%;
 }
-@media screen and (max-width: 991px) {
-  .banner {
-    margin-top: 0;
-  }
-}
 
-#homeMenuSpacer {
+.menuSpacer {
   height: 0;
 }
 @media screen and (max-width: 991px) {
-  #homeMenuSpacer {
+  .menuSpacer {
     height: 120px;
+    background-color: black;
   }
 }
 .bs-slider {
@@ -110,8 +105,8 @@ h2 {
     width: 100%;
     padding: 20px 8% 0 8%;
   }
-  .bannertext a {
-    display: none;
+  .mobileCenter {
+    text-align: center;
   }
 }
 
@@ -147,7 +142,7 @@ h2 {
     background-position: 468px 0; } }
 
 body {
-  padding-top: 120px !important;
+  padding-top: 0 !important;
   font-family: "Roboto Condensed";
   font-weight: 300;
   font-size: 16px;
