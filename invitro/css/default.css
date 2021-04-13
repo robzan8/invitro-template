@@ -90,11 +90,11 @@ h2 {
 
 .bannertext {
   font-size: 28px;
-  font-weight:bold;
+  font-weight: 400;
   position: absolute;
   top: 150px;
   left: 50px;
-  width: 45%;
+  width: 440px;
 }
 @media screen and (max-width: 991px) {
   .bannertext {
