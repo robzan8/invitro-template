@@ -131,6 +131,12 @@ h2 {
   }
 }
 
+.contentimage {
+  display: block;
+  margin: 25px auto;
+  max-width: 100%;
+}
+
 .redhr {
   width: 120px;
   border-top: 5px solid #be0e0e;

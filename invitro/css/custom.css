@@ -89,7 +89,8 @@ h2 {
 }
 
 .bannertext {
-  font-size: 22px;
+  font-size: 28px;
+  font-weight:bold;
   position: absolute;
   top: 150px;
   left: 50px;
@@ -128,6 +129,12 @@ h2 {
   .locandina {
     display: block;
   }
+}
+
+.contentimage {
+  display: block;
+  margin: 25px auto;
+  max-width: 100%;
 }
 
 .redhr {
