@@ -156,8 +156,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   color: #111;
-  background: #f3f3f3;
-  padding-top: 80px; }
+  background: #f3f3f3; }
   body a {
     color: #444c53;
     text-decoration: none;
@@ -1266,8 +1265,6 @@ body._nav-on header nav {
     left: -10px;
     right: 5px; }
 
-body.style_3._home {
-  padding-top: 0; }
   body.style_3._home header {
     background: none;
     border: none; }
