@@ -144,8 +144,7 @@
 <link href="{$this->siteurl}{$Yii->theme->baseUrl}/css/jquery.mCustomScrollbar.css" rel="stylesheet" media="screen" /> 
 {if (Yii::app()->paymentGateway->isSCA() && (isset(Yii::app()->controller->PAYMENT_GATEWAY['stripe']) && Yii::app()->controller->PAYMENT_GATEWAY['stripe']=='stripe'))}
 <script src="https://js.stripe.com/v3/"></script>
-{/if}     
-        
+{/if}       
 </head>
 <body class="{$this->style_code} {if $this->ishome}_home{/if}">
     {$this->cookie_msg}
